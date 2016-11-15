@@ -1,12 +1,18 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <message-todo></message-todo>
+    <div class="container">
+      <message-todo></message-todo>
+    </div>
   </div>
 </template>
 
+<!--<tree-view></tree-view>-->
+
+
 <script>
 import MessageTodo from './components/MessageTodo'
+import TreeView from './treeview/treeview.vue'
 
 export default {
   name: 'app',
@@ -17,7 +23,8 @@ export default {
 
   },
   components: {
-    MessageTodo
+    MessageTodo,
+    TreeView
   }
 }
 </script>
@@ -31,4 +38,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+  .container{
+    width: 50%;
+    padding: 0 25%;
+    text-align: left;
+  }
 </style>
