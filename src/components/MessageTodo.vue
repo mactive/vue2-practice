@@ -8,7 +8,11 @@
     >
     </message-input>
     <ul>
-      <li v-for="msg in messages">{{msg}}</li>
+      <li v-for="msg in messages"
+          @click="toggleMessage(msg,$event)"
+          class="message-item"
+          :class="{ completed: msg.completed }">
+        {{msg.text}}</li>
     </ul>
   </div>
 </template>
@@ -16,6 +20,12 @@
 <style>
   body {
     background-color: #ffffff;
+  }
+  .completed{
+    text-decoration: line-through;
+  }
+  .message-item{
+    cursor: pointer;
   }
 </style>
 
@@ -40,7 +50,14 @@
         this.messages.push(message)
       },
       actionDispatch: function (message){
-        this.latestMessage = "latest:"+message;
+        this.latestMessage = "latest:"+message.text;
+      },
+      /**
+       * toggleMessage
+       */
+      toggleMessage: function(message,event){
+        console.log(message,event);
+        message.completed = ! message.completed;
       }
     },
     components: {
