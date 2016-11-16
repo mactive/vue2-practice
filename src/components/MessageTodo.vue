@@ -1,6 +1,11 @@
 <template>
   <div>
-    <h4>{{latestMessage}}</h4>
+    <div class="dashboard">
+      <h4>最后一条: {{latestMessage}} </h4>
+      <h4>发布时间: {{latestTimeFormat}}</h4>
+      <h4>距离现在: {{timePassed}}</h4>
+    </div>
+    <message-dashboard ></message-dashboard>
     <message-input
         v-on:new-message="handleMessage"
         v-bind:defaultMessageInput="defaultMessageInput"
@@ -31,15 +36,44 @@
 
 <script>
   import MessageInput from './MessageInput'
+  import MessageDashboard from "./MessageDashboard"
+  import moment from 'moment'
 
   export default{
     name: 'message-todo',
     data(){
       return {
         messages: [],
-        latestMessage: "",
+        latestTime: "",
+        timePassed: 'none',
         defaultMessageInput: "type something"
       }
+    },
+    computed:{
+      latestMessage: function(){
+        var last = {};
+        if(this.messages.length == 0){
+          last = {text: ""};
+        }else{
+          last = this.messages[this.messages.length - 1];
+        }
+        return last.text;
+      },
+      latestTimeFormat: function(){
+        if(this.latestTime === ''){
+          return ''
+        }else{
+          return moment(this.latestTime).format("YYYY-MM-DD HH:mm:ss");
+        }
+      }
+    },
+    mounted: function() {
+      var self = this;
+
+      setInterval(function() {
+        var diffSecond = moment().diff(moment(self.latestTime))/1000;
+        self.$data.timePassed = Math.floor(diffSecond) + '秒';
+      }, 1000);
     },
     methods: {
       /**
@@ -50,18 +84,19 @@
         this.messages.push(message)
       },
       actionDispatch: function (message){
-        this.latestMessage = "latest:"+message.text;
+        // do something else
+        this.latestTime = new Date();
       },
       /**
        * toggleMessage
        */
       toggleMessage: function(message,event){
-        console.log(message,event);
+        console.log(message);
         message.completed = ! message.completed;
       }
     },
     components: {
-      MessageInput,
+      MessageInput,MessageDashboard
     }
   }
 </script>
