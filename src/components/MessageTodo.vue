@@ -5,13 +5,19 @@
       <h4>发布时间: {{latestTimeFormat}}</h4>
       <h4>距离现在: {{timePassed}}</h4>
     </div>
-    <message-dashboard ></message-dashboard>
+    <message-dashboard v-on:emitMessage="newMessage"></message-dashboard>
+
+    <!--message-input-->
     <message-input
         v-on:new-message="handleMessage"
+        v-on:switch-action="handleSwitchAction"
         v-bind:defaultMessageInput="defaultMessageInput"
         v-bind:inputAction="actionDispatch"
     >
     </message-input>
+
+
+
     <ul>
       <li v-for="msg in messages"
           @click="toggleMessage(msg,$event)"
@@ -78,14 +84,20 @@
     methods: {
       /**
        * 父组件接受子组件调用
+       * https://vuejs.org/v2/guide/components.html#Using-v-on-with-Custom-Events
        * @param message
        */
       handleMessage: function (message) {
         this.messages.push(message)
+        this.newMessage(message);
       },
       actionDispatch: function (message){
         // do something else
         this.latestTime = new Date();
+      },
+      newMessage : function(msg){
+        console.log("todo com newMessage",msg.text);
+        this.$emit('newMessage', msg.text);
       },
       /**
        * toggleMessage
@@ -93,6 +105,9 @@
       toggleMessage: function(message,event){
         console.log(message);
         message.completed = ! message.completed;
+      },
+      handleSwitchAction: function(){
+        console.log('MessageTodo-handleSwitchAction', arguments);
       }
     },
     components: {

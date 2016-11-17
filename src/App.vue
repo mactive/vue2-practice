@@ -38,6 +38,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+#app img{
+  height: 50px;
+}
   .container{
     width: 50%;
     padding: 0 25%;
