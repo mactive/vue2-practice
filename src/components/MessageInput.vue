@@ -24,6 +24,12 @@
         message: ''
       }
     },
+    watch: {
+      message: function(val, oldVal){
+        console.log(val);
+        this.$emit('realtime-message', val);
+      }
+    },
     methods: {
       storeMessage: function () {
         // 向上触发事件和参数  custom event
@@ -36,7 +42,7 @@
       handleSwitchAction: function(){
         console.log('MessageInput-handleSwitchAction', arguments);
         this.$emit('switch-action', arguments[0],arguments[1]);
-      }
+      },
     },
     components: {
       MessageMark

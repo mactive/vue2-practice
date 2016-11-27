@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="dashboard">
+      <h5>实时: {{realtimeMessage}}</h5>
       <h4>最后一条: {{latestMessage}} </h4>
       <h4>发布时间: {{latestTimeFormat}}</h4>
       <h4>距离现在: {{timePassed}}</h4>
@@ -11,12 +12,11 @@
     <message-input
         v-on:new-message="handleMessage"
         v-on:switch-action="handleSwitchAction"
+        v-on:realtime-message="realtimeAction"
         v-bind:defaultMessageInput="defaultMessageInput"
         v-bind:inputAction="actionDispatch"
     >
     </message-input>
-
-
 
     <ul>
       <li v-for="msg in messages"
@@ -52,7 +52,8 @@
         messages: [],
         latestTime: "",
         timePassed: 'none',
-        defaultMessageInput: "type something"
+        defaultMessageInput: "type something",
+        realtimeMessage: ""
       }
     },
     computed:{
@@ -108,6 +109,10 @@
       },
       handleSwitchAction: function(){
         console.log('MessageTodo-handleSwitchAction', arguments);
+      },
+      realtimeAction: function(realtime){
+        console.log(realtime);
+        this.realtimeMessage = realtime;
       }
     },
     components: {
