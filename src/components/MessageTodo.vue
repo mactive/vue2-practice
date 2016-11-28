@@ -53,7 +53,8 @@
         latestTime: "",
         timePassed: 'none',
         defaultMessageInput: "type something",
-        realtimeMessage: ""
+        realtimeMessage: "",
+        checkList: ['选中且禁用','复选框 A']
       }
     },
     computed:{
@@ -116,7 +117,7 @@
       }
     },
     components: {
-      MessageInput,MessageDashboard
+      MessageInput, MessageDashboard
     }
   }
 </script>

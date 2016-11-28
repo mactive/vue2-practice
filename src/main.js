@@ -1,10 +1,17 @@
 import Vue from 'vue'
 import App from './App'
-import defalutExport, {value_a, value_b} from './lib/check'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+Vue.use(ElementUI)
 
-defalutExport("haha");
-console.log(value_a);
-console.log(value_b);
+/**
+ * try export default
+ */
+// import defalutExport, {value_a, value_b} from './lib/check'
+//
+// defalutExport("haha");
+// console.log(value_a);
+// console.log(value_b);
 
 /* eslint-disable no-new */
 new Vue({
