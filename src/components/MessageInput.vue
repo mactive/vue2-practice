@@ -18,15 +18,28 @@
 
   export default{
     name: 'message-input',
-    props:["defaultMessageInput","inputAction"],
+    props: {
+      defaultMessageInput: {
+        type: String,
+        required: false,
+        default: 'defaultMessage'
+      },
+      inputAction: {
+        type: Function,
+        required: true,
+      }
+    },
     data() {
       return {
         message: ''
       }
     },
+    created: function(){
+      console.log('created', this.$options.props);
+      console.log('created', Object.keys(this.$options.props));
+    },
     watch: {
       message: function(val, oldVal){
-        console.log(val);
         this.$emit('realtime-message', val);
       }
     },

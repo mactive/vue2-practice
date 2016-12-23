@@ -112,7 +112,6 @@
         console.log('MessageTodo-handleSwitchAction', arguments);
       },
       realtimeAction: function(realtime){
-        console.log(realtime);
         this.realtimeMessage = realtime;
       }
     },

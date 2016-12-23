@@ -1,8 +1,15 @@
 import Vue from 'vue'
 import App from './App'
-import ElementUI from 'element-ui'
+
+/**
+ * 部分引入elementUI
+ */
+import { Checkbox, CheckboxGroup, Button } from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-Vue.use(ElementUI)
+
+Vue.use(Checkbox)
+Vue.use(CheckboxGroup)
+Vue.use(Button)
 
 /**
  * try export default
@@ -18,4 +25,4 @@ new Vue({
   el: '#app',
   template: '<App/>',
   components: { App }
-});
+})
