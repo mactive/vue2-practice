@@ -1,11 +1,12 @@
 <template>
   <div id="app" class="container">
-    <custom-filters></custom-filters>
+    <computed-prop></computed-prop>
   </div>
 </template>
 
 <script>
 import CustomFilters from './majesty/custom-filters'
+import ComputedProp from './majesty/computed-prop'
 
 export default {
   name: 'app',
@@ -18,7 +19,8 @@ export default {
     
   },
   components: {
-    CustomFilters
+    CustomFilters,
+    ComputedProp
   }
 }
 </script>
