@@ -1,26 +1,32 @@
 <template>
-  <div id="app" class="container">
-    <computed-prop></computed-prop>
+  <div name="majesty" class="container">
+    <ul class="list-group">
+      <li v-for="link in links" class="list-group-item">
+        <a :href="link.path">{{link.name}}</a>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import CustomFilters from './majesty/custom-filters'
-import ComputedProp from './majesty/computed-prop'
-
 export default {
   name: 'app',
   data(){
     return {
-      title: '',
+      links:[{
+        path:'/#/filters',
+        name: 'filters'
+      },
+      {
+        path:'/#/props',
+        name: 'props'
+      }]
     }
   },
   methods:{
     
   },
   components: {
-    CustomFilters,
-    ComputedProp
   }
 }
 </script>
