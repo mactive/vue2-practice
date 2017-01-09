@@ -21,13 +21,14 @@
     name: 'emit-listen',
     data() {
       return {
-        votes: 1,
+        votes: this.$store.state.votes,
         logs: []
       }
     },
     created() {
       this.$on('upppp-vote', () => {
-        this.votes += 1;
+        this.$store.state.votes += 1;
+        this.votes = this.$store.state.votes;
       })
     },
     methods: {
@@ -37,6 +38,7 @@
       },
       reset: function() {
         this.votes = 0;
+        this.$store.state.votes = 0;
         this.logs = [];
       }
     },

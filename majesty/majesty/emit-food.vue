@@ -1,6 +1,6 @@
 <template>
   <div class="col-xs-4">
-    <p>{{selfVote}}</p>
+    <p>{{selfVote}}-{{$store.state.votes}}</p>
     <button class="btn btn-large btn-primary" @click="vote">{{name}}</button>
   </div>
 </template>
