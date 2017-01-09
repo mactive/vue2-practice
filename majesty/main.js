@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import MajestyApp from './majesty-app'
 import CustomFilters from './majesty/custom-filters'
 import ComputedProp from './majesty/computed-prop'
-
+import EmitListen from './majesty/emit-listen'
 Vue.use(VueRouter)
 
 // new Vue({
@@ -15,7 +15,8 @@ Vue.use(VueRouter)
 const routes = [
   { path: '/', component: MajestyApp },
   { path: '/filters', component: CustomFilters },
-  { path: '/props', component: ComputedProp }
+  { path: '/props', component: ComputedProp },
+  { path: '/emitlisten', component: EmitListen}
 ]
 
 const router = new VueRouter({
