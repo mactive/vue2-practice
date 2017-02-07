@@ -46,6 +46,7 @@
     "ora": "^0.3.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.4",
+    "todomvc-app-css": "^2.0.6",
     "url-loader": "^0.5.7",
     "vue-loader": "^9.4.0",
     "vue-router": "^2.1.1",
