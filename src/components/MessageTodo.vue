@@ -38,6 +38,9 @@
   .message-item{
     cursor: pointer;
   }
+  .dashboard{
+    width: 500px;
+  }
 </style>
 
 <script>

@@ -10,10 +10,13 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "element-ui": "^1.0.2",
     "moment": "^2.16.0",
-    "vue": "^2.0.1",
+    "vue": "2.1.10",
     "vue-amap": "^0.1.6",
+    "vue-instant": "^1.0.0",
+    "vue-template-compiler": "lasted",
     "vuex": "^2.1.1"
   },
   "devDependencies": {
@@ -49,7 +52,7 @@
     "shelljs": "^0.7.4",
     "todomvc-app-css": "^2.0.6",
     "url-loader": "^0.5.7",
-    "vue-loader": "^9.4.0",
+    "vue-loader": "10.0.0",
     "vue-router": "^2.1.1",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.13.2",
